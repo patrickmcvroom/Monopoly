@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    [SerializeField] private int cellWidth;
-    [SerializeField] private int cellHeight;
+    public static (float width, float height) CornerSize = (2f, 2f);
+    public static (float width, float height) SideSize = (1.2f, 2f);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        var scale = gameObject.GetComponentInChildren<Transform>().localScale;
-        cellWidth = (int)scale.z;
-        cellWidth = (int)scale.x;
-    }
+    [SerializeField] private float cellWidth;
+    [SerializeField] private float cellHeight;
 
-    // Update is called once per frame
-    void Update()
+    public float CellWidth { get { return cellWidth; } }
+    public float CellHeight { get { return cellHeight; } }
+
+    void Awake()
     {
-        
+        var scale = transform.GetChild(0).lossyScale;
+        cellWidth = scale.z;
+        cellHeight = scale.x;
     }
 }
