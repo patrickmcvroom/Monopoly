@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]int cash;
-    [SerializeField]bool isBankrupt;
-    [SerializeField]int position;
+    [SerializeField] int cash;
+    [SerializeField] bool isBankrupt;
+    [SerializeField] int position;
+    [SerializeField] Board board;
 
+    public void Move(int amount)
+    {
+        position += amount;
+        position %= Board.CellCount;
+
+        transform.position = board.GetCellPosition(position);
+    }
+
+    public int Roll(Dice dice)
+    {
+        return dice.Roll();
+    }
 
     void Start()
     {
         cash = 1500;
         isBankrupt = false;
+        
+        position = 0;
     }
 
     // Update is called once per frame

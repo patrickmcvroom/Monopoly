@@ -4,40 +4,18 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-    public GameObject[] boardCell = new GameObject[40];
+    public static int CellCount = 40;
+    [SerializeField] private GameObject[] cells = new GameObject[CellCount];
 
-    public int currentRoll;
-    int currentSpace = 0;
-    int newSpace;
-
-
-
-    int Move()
+    public Vector3 GetCellPosition(int index)
     {
-        newSpace = currentSpace + currentRoll;
-        return newSpace;
-    }
-
-    int Roll()
-    {
-        currentRoll = Random.Range(1, 12);
-        return currentRoll;
-
-        Move();
+        return cells[index].transform.position;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        boardCell[0] = GameObject.FindGameObjectWithTag("Go");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            Roll();
-        }
-    }
+   
 }
