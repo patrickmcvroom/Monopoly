@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Property3
   - Go
+  - Board
   layers:
   - Default
   - TransparentFX

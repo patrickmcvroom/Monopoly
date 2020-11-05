@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  cellPos: {x: 0, y: 0, z: 0}
 --- !u!1 &446910560
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.048102126, y: 0.91655207, z: -0.11612887, w: -0.37964806}
-  m_LocalPosition: {x: 8.15, y: 3.77, z: 8.28}
+  m_LocalPosition: {x: 13.25, y: 3.77, z: 12.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1185,6 +1186,11 @@ PrefabInstance:
     - target: {fileID: 1644071508982434861, guid: 29917b7131fa743e0895d08c8585e326,
         type: 3}
       propertyPath: m_Name
+      value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644071508982434861, guid: 29917b7131fa743e0895d08c8585e326,
+        type: 3}
+      propertyPath: m_TagString
       value: Board
       objectReference: {fileID: 0}
     - target: {fileID: 1644071508982434857, guid: 29917b7131fa743e0895d08c8585e326,
