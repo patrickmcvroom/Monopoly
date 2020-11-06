@@ -8,8 +8,10 @@ public class Board : MonoBehaviour
 
     [SerializeField] private Cell cornerCell;
     [SerializeField] private Cell sideCell;
+    [SerializeField] private Player player;
     [SerializeField] private Cell[] cells = new Cell[CellCount];
-    [SerializeField] private Vector3 cellPos;
+    
+    //[SerializeField] private Vector3 cellPos;
     
     private void InstantiateFirstRow()
     {
