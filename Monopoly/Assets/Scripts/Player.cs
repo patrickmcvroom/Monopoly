@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
         position += amount;
         position %= Board.CellCount;
 
-        transform.position = board.GetCellPosition(position);
+        var targetPosition = board.GetCellPosition(position);
+
+        // animate this
+        transform.position = targetPosition;
     }
 
     public int Roll(Dice dice)

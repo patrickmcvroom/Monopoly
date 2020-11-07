@@ -8,7 +8,8 @@ public class Board : MonoBehaviour
 
     [SerializeField] private Cell cornerCell;
     [SerializeField] private Cell sideCell;
-    [SerializeField] private Player player;
+    [SerializeField] private Texture[] textures = new Texture[CellCount];
+    [SerializeField] private TileConfiguration[] configs = new TileConfiguration[CellCount];
     [SerializeField] private Cell[] cells = new Cell[CellCount];
     
     //[SerializeField] private Vector3 cellPos;
@@ -23,12 +24,15 @@ public class Board : MonoBehaviour
 
             cells[corner] = Instantiate(cornerCell, new Vector3(6.38f, 0.05f, cellZValue), Quaternion.identity);
             cells[corner].transform.SetParent(transform);
+            cells[corner].SetConfiguration(configs[corner]);
+            cells[corner].transform.Rotate(0f, 270f, 0f, Space.World);
             cellZValue -= Cell.CornerSize.width / 2 + Cell.SideSize.width / 2;
 
             for (int side = 0; side < 9; side++)
             {
                 cells[side] = Instantiate(sideCell, new Vector3(6.38f, 0.05f, cellZValue), Quaternion.identity);
                 cells[side].transform.SetParent(transform);
+                cells[side].SetTexture(textures[side]);
                 cellZValue -= Cell.SideSize.width;
             }
         }
@@ -72,6 +76,7 @@ public class Board : MonoBehaviour
             {
                 cells[side] = Instantiate(sideCell, new Vector3(-6.4f, 0.05f, cellZValue), Quaternion.identity);
                 cells[side].transform.SetParent(transform);
+                cells[side].transform.Rotate(0f, 180f, 0f, Space.World);
                 cellZValue += Cell.SideSize.width;
             }
         }
@@ -92,7 +97,7 @@ public class Board : MonoBehaviour
             for (int side = 0; side < 9; side++)
             {
                 cells[side] = Instantiate(sideCell, new Vector3(cellXValue, 0.05f, 6.4f), Quaternion.identity);
-                cells[side].transform.Rotate(0f, 90f, 0f, Space.World);
+                cells[side].transform.Rotate(0f, 270f, 0f, Space.World);
                 cells[side].transform.SetParent(transform);
                 cellXValue += Cell.SideSize.width;
             }
@@ -118,6 +123,8 @@ public class Board : MonoBehaviour
         scale.z = boardWidth;
 
         child.localScale = scale;
+
+        configs = Resources.LoadAll<TileConfiguration>("Tile Configs");
 
         InstantiateFirstRow();
         InstantiateSecondRow();
