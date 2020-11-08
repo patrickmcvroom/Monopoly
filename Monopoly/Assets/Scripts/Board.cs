@@ -10,7 +10,7 @@ public class Board : MonoBehaviour
     [SerializeField] private Cell sideCell;
     [SerializeField] private Texture[] textures = new Texture[CellCount];
     [SerializeField] private TileConfiguration[] cornerConfigs = new TileConfiguration[CellCount/10];
-    [SerializeField] private TileConfiguration[] sideConfigs = new TileConfiguration[CellCount];
+    [SerializeField] private TileConfiguration[] sideConfigs = new TileConfiguration[35];
     [SerializeField] private Cell[] cells = new Cell[CellCount];
 
     //[SerializeField] private Vector3 cellPos;
@@ -43,19 +43,22 @@ public class Board : MonoBehaviour
     {
         // INSTANTIATE SECOND ROW
 
-        for (int corner = 0; corner < 1; corner++)
+        for (int corner = 1; corner < 2; corner++)
         {
             var cellXValue = 6.38f;
 
             cells[corner] = Instantiate(cornerCell, new Vector3(cellXValue, 0.05f, -6.4f), Quaternion.identity);
+            cells[corner].transform.Rotate(0f, -90f, 0, Space.World);
             cells[corner].transform.SetParent(transform);
+            cells[corner].SetConfiguration(cornerConfigs[corner]);
             cellXValue -= Cell.CornerSize.width / 2 + Cell.SideSize.width / 2;
 
-            for (int side = 0; side < 9; side++)
+            for (int side = 9; side < 18; side++)
             {
                 cells[side] = Instantiate(sideCell, new Vector3(cellXValue, 0.05f, -6.4f), Quaternion.identity);
                 cells[side].transform.SetParent(transform);
                 cells[side].transform.Rotate(0f, 90f, 0f, Space.World);
+                cells[side].SetConfiguration(sideConfigs[side]);
                 cellXValue -= Cell.SideSize.width;
             }
         }
@@ -65,19 +68,22 @@ public class Board : MonoBehaviour
     {
         // INSTANTIATE THIRD ROW
 
-        for (int corner = 0; corner < 1; corner++)
+        for (int corner = 2; corner < 3; corner++)
         {
             var cellZValue = -6.4f;
 
             cells[corner] = Instantiate(cornerCell, new Vector3(-6.4f, 0.05f, cellZValue), Quaternion.identity);
             cells[corner].transform.SetParent(transform);
+            cells[corner].transform.Rotate(0f, -90f, 0f, Space.World);
+            cells[corner].SetConfiguration(cornerConfigs[corner]);
             cellZValue += Cell.CornerSize.width / 2 + Cell.SideSize.width / 2;
 
-            for (int side = 0; side < 9; side++)
+            for (int side = 18; side < 27; side++)
             {
                 cells[side] = Instantiate(sideCell, new Vector3(-6.4f, 0.05f, cellZValue), Quaternion.identity);
                 cells[side].transform.SetParent(transform);
                 cells[side].transform.Rotate(0f, 180f, 0f, Space.World);
+                cells[side].SetConfiguration(sideConfigs[side]);
                 cellZValue += Cell.SideSize.width;
             }
         }
@@ -87,18 +93,21 @@ public class Board : MonoBehaviour
     {
         // INSTANTIATE FOURTH ROW
 
-        for (int corner = 0; corner < 1; corner++)
+        for (int corner = 3; corner < 4; corner++)
         {
             var cellXValue = -6.4f;
 
             cells[corner] = Instantiate(cornerCell, new Vector3(cellXValue, 0.05f, 6.4f), Quaternion.identity);
             cells[corner].transform.SetParent(transform);
+            cells[corner].transform.Rotate(0f, -90f, 0f, Space.World);
+            cells[corner].SetConfiguration(cornerConfigs[corner]);
             cellXValue += Cell.CornerSize.width / 2 + Cell.SideSize.width / 2;
 
-            for (int side = 0; side < 9; side++)
+            for (int side = 27; side < 36; side++)
             {
                 cells[side] = Instantiate(sideCell, new Vector3(cellXValue, 0.05f, 6.4f), Quaternion.identity);
                 cells[side].transform.Rotate(0f, 270f, 0f, Space.World);
+                cells[side].SetConfiguration(sideConfigs[side]);
                 cells[side].transform.SetParent(transform);
                 cellXValue += Cell.SideSize.width;
             }

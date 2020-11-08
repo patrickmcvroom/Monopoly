@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabc0d523e8147879ecf7e06e9eb8e0, type: 3}
   m_Name: 14_Station 2
   m_EditorClassIdentifier: 
-  Texture: {fileID: 2800000, guid: de32e3a18bacd481d9f455f0465014e9, type: 3}
-  Name: OLD KENT ROAD
-  Value: 60
+  Texture: {fileID: 2800000, guid: 9dfa5e7e2226046cdb98b815ba9cf7c3, type: 3}
+  Name: MARYLEBONE  STATION
+  Value: 200

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabc0d523e8147879ecf7e06e9eb8e0, type: 3}
   m_Name: 01_Go
   m_EditorClassIdentifier: 
-  Texture: {fileID: 2800000, guid: 19f20d8b158244fbfa51b8f6d0469ffe, type: 3}
+  Texture: {fileID: 2800000, guid: c5cfb8bc6433e4964930b3ee8ef39503, type: 3}
   Name: GO
   Value: 0
