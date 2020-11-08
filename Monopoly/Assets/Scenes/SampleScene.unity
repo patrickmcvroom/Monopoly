@@ -228,9 +228,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  configs:
-  - {fileID: 0}
-  - {fileID: 0}
+  cornerConfigs:
+  - {fileID: 11400000, guid: fdc409ace79e34a49a528c2690b65dd4, type: 2}
+  - {fileID: 11400000, guid: fdc409ace79e34a49a528c2690b65dd4, type: 2}
+  - {fileID: 11400000, guid: fdc409ace79e34a49a528c2690b65dd4, type: 2}
+  - {fileID: 11400000, guid: fdc409ace79e34a49a528c2690b65dd4, type: 2}
+  sideConfigs:
+  - {fileID: 11400000, guid: 77743947a14fb43ab8c8b53eae4c53e5, type: 2}
+  - {fileID: 11400000, guid: 5103bb27f434d42e2abeb6dd3fd3e520, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

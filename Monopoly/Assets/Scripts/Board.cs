@@ -9,11 +9,12 @@ public class Board : MonoBehaviour
     [SerializeField] private Cell cornerCell;
     [SerializeField] private Cell sideCell;
     [SerializeField] private Texture[] textures = new Texture[CellCount];
-    [SerializeField] private TileConfiguration[] configs = new TileConfiguration[CellCount];
+    [SerializeField] private TileConfiguration[] cornerConfigs = new TileConfiguration[CellCount/10];
+    [SerializeField] private TileConfiguration[] sideConfigs = new TileConfiguration[CellCount];
     [SerializeField] private Cell[] cells = new Cell[CellCount];
-    
+
     //[SerializeField] private Vector3 cellPos;
-    
+
     private void InstantiateFirstRow()
     {
         // INSTANTIATE FIRST ROW
@@ -24,7 +25,7 @@ public class Board : MonoBehaviour
 
             cells[corner] = Instantiate(cornerCell, new Vector3(6.38f, 0.05f, cellZValue), Quaternion.identity);
             cells[corner].transform.SetParent(transform);
-            cells[corner].SetConfiguration(configs[corner]);
+            cells[corner].SetConfiguration(cornerConfigs[corner]);
             cells[corner].transform.Rotate(0f, 270f, 0f, Space.World);
             cellZValue -= Cell.CornerSize.width / 2 + Cell.SideSize.width / 2;
 
@@ -32,7 +33,7 @@ public class Board : MonoBehaviour
             {
                 cells[side] = Instantiate(sideCell, new Vector3(6.38f, 0.05f, cellZValue), Quaternion.identity);
                 cells[side].transform.SetParent(transform);
-                cells[side].SetTexture(textures[side]);
+                cells[side].SetConfiguration(sideConfigs[side]);
                 cellZValue -= Cell.SideSize.width;
             }
         }
@@ -124,7 +125,8 @@ public class Board : MonoBehaviour
 
         child.localScale = scale;
 
-        configs = Resources.LoadAll<TileConfiguration>("Tile Configs");
+        cornerConfigs = Resources.LoadAll<TileConfiguration>("Corner Tile Configs");
+        sideConfigs = Resources.LoadAll<TileConfiguration>("Side Tile Configs");
 
         InstantiateFirstRow();
         InstantiateSecondRow();
