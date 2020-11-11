@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int cash;
-    [SerializeField] bool isBankrupt;
-    [SerializeField] int position;
-    [SerializeField] Board board;
+    [SerializeField] private int cash;
+    [SerializeField] private bool isBankrupt;
+    [SerializeField] private int position;
+    [SerializeField] private Board board;
+
+    public void Create(Vector3 position)
+    {
+        Instantiate(transform, position, Quaternion.identity);
+    }
 
     public void Move(int amount)
     {
@@ -29,13 +34,13 @@ public class Player : MonoBehaviour
     {
         cash = 1500;
         isBankrupt = false;
-        
-        position = 0;
+        //position = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         cash = Mathf.Clamp(cash, 0, 50000);
+
     }
 }
