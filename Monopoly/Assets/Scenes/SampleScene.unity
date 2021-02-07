@@ -147,14 +147,14 @@ RectTransform:
   m_GameObject: {fileID: 76150320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 4, z: 1}
+  m_LocalScale: {x: 9, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 358923971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -141}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76150322
@@ -395,6 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 5
   gameBoard: {fileID: 1644071508982434861, guid: 29917b7131fa743e0895d08c8585e326,
+    type: 3}
+  middleOfBoard: {fileID: 431069104953236956, guid: afbd3c3a765c047f299b276a1d427715,
     type: 3}
   dice: {fileID: 79480838}
   playerOne: {fileID: 1728533641113228464, guid: a6bad9212a28f46e7a96d832860599ac,
@@ -859,7 +861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -141}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033223125
@@ -908,8 +910,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -946,7 +948,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -369.13293, y: -64.572754, z: -412.65942, w: -26.56903}
+  m_margin: {x: -265.4336, y: -48.97516, z: -294.4016, w: -14.395386}
   m_textInfo:
     textComponent: {fileID: 2033223125}
     characterCount: 23

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameState state;
 
     [SerializeField] private GameObject gameBoard;
+    [SerializeField] private GameObject middleOfBoard;
     [SerializeField] private Dice dice;
     [SerializeField] private Player playerOne;
     [SerializeField] private int playerTurn;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
 
         // Generate the board
         board.Create(board.GetBoardWidth(), board.GetBoardWidth(), Vector3.zero);
+        Instantiate(middleOfBoard, new Vector3(0f, 0.01f, 0f), Quaternion.identity);
 
         // Generate the players
         //playerOne.Create(board.GetCellPosition(15));
