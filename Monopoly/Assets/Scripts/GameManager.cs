@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { START, PONEROLL, PONEMOVE, PONECARD, PONEDONE, PTWOROLL, PTWOMOVE, PTWOCARD, PTWODONE, GAMEOVER }
+public enum GameState { START, PLAYER_ORDER, ROLL, MOVE, CELL_EVENT, END_TURN, GAMEOVER }
 
 public class GameManager : MonoBehaviour
 {
@@ -11,21 +11,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private Dice dice;
     [SerializeField] private Player playerOne;
-    //[SerializeField] private Player playerTwo;
-    //[SerializeField] private Player playerThree;
-    //[SerializeField] private Player playerFour;
-    //[SerializeField] private Player currentPlayer;
-    private Board board;
+    [SerializeField] private int playerTurn;
+    [SerializeField] private new Camera camera;
 
+    private Board board;
+     
     private void Start()
     {
         state = GameState.START;
-
         SetupScene();
     }
 
     void SetupScene()
     {
+        // Set the camera position and rotation
+        camera.transform.position = new Vector3(7.58f, 9.4f, 0f);
+        camera.transform.eulerAngles = new Vector3(60, 270, 0);
+
         // Create instance of the board
         var gameObject = Instantiate(gameBoard, Vector3.zero, Quaternion.identity);
         board = gameObject.GetComponent<Board>();
