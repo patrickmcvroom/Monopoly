@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int cash;
     [SerializeField] private bool isBankrupt;
-    [SerializeField] private int position;
+    [SerializeField] private int cellPosition;
     [SerializeField] private Board board;
 
     public void Create(Vector3 position)
@@ -16,10 +16,10 @@ public class Player : MonoBehaviour
 
     public void Move(int amount)
     {
-        position += amount;
-        position %= Board.CellCount;
+        cellPosition += amount;
+        cellPosition %= Board.CellCount;
 
-        var targetPosition = board.GetCellPosition(position);
+        var targetPosition = board.GetCellPosition(cellPosition);
 
         // animate this
         transform.position = targetPosition;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         cash = 1500;
         isBankrupt = false;
-        //position = 0;
+        cellPosition = 0;
     }
 
     // Update is called once per frame

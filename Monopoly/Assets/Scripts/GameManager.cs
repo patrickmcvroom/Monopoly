@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState { START, PONEROLL, PONEMOVE, PLAYERTWOROLL, GAMEOVER }
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameBoard;
@@ -22,8 +24,6 @@ public class GameManager : MonoBehaviour
         // Generate the board
         board.Create(board.GetBoardWidth(), board.GetBoardWidth(), Vector3.zero);
 
-        Debug.Log("Cell 15 position is " + board.GetCellPosition(15));
-
         // Generate the players
         //playerOne.Create(board.GetCellPosition(15));
     }
@@ -34,25 +34,17 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            if (board.GetCellPosition(15) == null)
-            {
-                Debug.Log("NULL");
-            }
-            else
-            {
-                Debug.Log("NOT NULL");
-                playerOne.Create(board.GetCellPosition(10));
-            }
+                playerOne.Create(board.GetCellPosition(0));
         }
 
-        //if (Input.GetKeyDown("space"))
-        //{
-        //    var rollValue = currentPlayer.Roll(dice);
+        if (Input.GetKeyDown("r"))
+        {
+            var rollValue = playerOne.Roll(dice);
 
-        //    currentPlayer.Move(rollValue);
-        //}
+            playerOne.Move(rollValue);
+        }
 
-        
+
 
 
     }
