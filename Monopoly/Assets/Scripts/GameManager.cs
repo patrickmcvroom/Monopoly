@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { START, PONEROLL, PONEMOVE, PLAYERTWOROLL, GAMEOVER }
+public enum GameState { START, PONEROLL, PONEMOVE, PONECARD, PONEDONE, PTWOROLL, PTWOMOVE, PTWOCARD, PTWODONE, GAMEOVER }
 
 public class GameManager : MonoBehaviour
 {
+    public GameState state;
+
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private Dice dice;
     [SerializeField] private Player playerOne;
@@ -16,6 +18,13 @@ public class GameManager : MonoBehaviour
     private Board board;
 
     private void Start()
+    {
+        state = GameState.START;
+
+        SetupScene();
+    }
+
+    void SetupScene()
     {
         // Create instance of the board
         var gameObject = Instantiate(gameBoard, Vector3.zero, Quaternion.identity);
