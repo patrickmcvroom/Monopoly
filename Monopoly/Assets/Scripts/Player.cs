@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int cash;
-    [SerializeField] private bool isBankrupt;
     [SerializeField] private int cellPosition;
     [SerializeField] private Board board;
 
@@ -33,7 +32,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         cash = 1500;
-        isBankrupt = false;
         cellPosition = 0;
     }
 

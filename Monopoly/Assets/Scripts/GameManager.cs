@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject middleOfBoard;
     [SerializeField] private Dice dice;
     [SerializeField] private Player playerOne;
+    [SerializeField] private Player playerTwo;
     [SerializeField] private int playerTurn;
     [SerializeField] private new Camera camera;
     [SerializeField] private float delay = 0.03f;
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
         Instantiate(middleOfBoard, new Vector3(0f, 0.01f, 0f), Quaternion.identity);
 
         // Generate the player
+        playerOne.Create(new Vector3(board.GetCellPosition(0).x + 0.4f, board.GetCellPosition(0).y, board.GetCellPosition(0).z));
+        playerTwo.Create(new Vector3(board.GetCellPosition(0).x - 0.4f, board.GetCellPosition(0).y, board.GetCellPosition(0).z));
 
         // Setup the dialogue
         fullText = "Welcome to Monopoly!";
@@ -68,22 +71,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown("space"))
-        {
-                playerOne.Create(board.GetCellPosition(0));
-        }
-
         if (Input.GetKeyDown("r"))
         {
             var rollValue = playerOne.Roll(dice);
 
-            playerOne.Move(rollValue);
+            //playerOne.Move(rollValue);
         }
-
-
-
-
     }
 
     IEnumerator TwoSeconds()
