@@ -16,7 +16,6 @@ public class Board : MonoBehaviour
     [SerializeField] private TileConfiguration[] cornerConfigs = new TileConfiguration[CellCount/10];
     [SerializeField] private TileConfiguration[] sideConfigs = new TileConfiguration[35];
     [SerializeField] private Cell[] cells = new Cell[CellCount];
-    
 
     private void InstantiateFirstRow()
     {
