@@ -24,10 +24,10 @@ public class Player : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    public int Roll(Dice dice)
-    {
-        return dice.Roll();
-    }
+    //public int Roll(Dice dice)
+    //{
+    //    return dice.Roll();
+    //}
 
     void Start()
     {

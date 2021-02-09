@@ -71,12 +71,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("r"))
-        {
-            var rollValue = playerOne.Roll(dice);
+        //if (Input.GetKeyDown("r"))
+        //{
+        //    var rollValue = playerOne.Roll(dice);
 
-            //playerOne.Move(rollValue);
-        }
+        //    //playerOne.Move(rollValue);
+        //}
     }
 
     IEnumerator TwoSeconds()
