@@ -18,22 +18,22 @@ public class DiceCheckZone : MonoBehaviour
             switch(col.gameObject.name)
             {
                 case "Side1":
-                    DiceNumberText.diceNumber = 6;
+                    GameManager.diceNumber = 6;
                     break;
                 case "Side2":
-                    DiceNumberText.diceNumber = 5;
+                    GameManager.diceNumber = 5;
                     break;
                 case "Side3":
-                    DiceNumberText.diceNumber = 4;
+                    GameManager.diceNumber = 4;
                     break;
                 case "Side4":
-                    DiceNumberText.diceNumber = 3;
+                    GameManager.diceNumber = 3;
                     break;
                 case "Side5":
-                    DiceNumberText.diceNumber = 2;
+                    GameManager.diceNumber = 2;
                     break;
                 case "Side6":
-                    DiceNumberText.diceNumber = 1;
+                    GameManager.diceNumber = 1;
                     break;
             }
         }

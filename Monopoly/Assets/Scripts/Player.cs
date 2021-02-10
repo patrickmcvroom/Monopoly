@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int cash;
     [SerializeField] private int cellPosition;
     [SerializeField] private Board board;
+
+    public string playerName;
+    public int cash;
+    public int playerID;
 
     public void Create(Vector3 position)
     {
@@ -29,16 +34,4 @@ public class Player : MonoBehaviour
     //    return dice.Roll();
     //}
 
-    void Start()
-    {
-        cash = 1500;
-        cellPosition = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        cash = Mathf.Clamp(cash, 0, 50000);
-
-    }
 }
