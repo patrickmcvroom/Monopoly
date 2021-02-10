@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2550713085597492031}
   m_Layer: 0
   m_Name: Rook
-  m_TagString: Untagged
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   board: {fileID: 5460420616894522935, guid: 29917b7131fa743e0895d08c8585e326, type: 3}
   playerName: Rook
   cash: 0
-  playerID: 2
+  playerID: 1
 --- !u!65 &2550713085597492031
 BoxCollider:
   m_ObjectHideFlags: 0
