@@ -499,6 +499,7 @@ MonoBehaviour:
   playerTwoNameText: {fileID: 461872101}
   playerTwoCashText: {fileID: 1093487243}
   fullText: 
+  hasRolled: 1
   gameBoard: {fileID: 1644071508982434861, guid: 29917b7131fa743e0895d08c8585e326,
     type: 3}
   middleOfBoard: {fileID: 431069104953236956, guid: afbd3c3a765c047f299b276a1d427715,
@@ -512,7 +513,6 @@ MonoBehaviour:
   playerTurn: 100
   camera: {fileID: 963194227}
   delay: 0.05
-  hasRolled: 0
 --- !u!1 &676803962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1680,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1793040821, guid: 971969305eaeb4d5997e90f7de3daecf, type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 629728173}
     - target: {fileID: 1069288560076377174, guid: 971969305eaeb4d5997e90f7de3daecf,
         type: 3}
       propertyPath: m_Name
@@ -1739,6 +1743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022130279578361963, guid: 971969305eaeb4d5997e90f7de3daecf,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 971969305eaeb4d5997e90f7de3daecf, type: 3}

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         state = GameState.START;
         StartCoroutine(SetupScene());
+        LeanTween.init(1000);
     }
 
     // -- UPDATE --
@@ -53,8 +54,10 @@ public class GameManager : MonoBehaviour
         if (playerTurn == 0)
         {
             // Enlarge Player 1 HUD, and change its colour
-            playerOneHUD.gameObject.transform.localScale = new Vector3(1.14f, 1.14f, 1.14f);
+
+            EnlargeHUDAnimation(playerOneHUD.gameObject);
             playerOneHUD.GetComponent<Image>().color = new Color32(253, 100, 100, 255);
+
             // Reduce Player 2 HUD
             playerTwoHUD.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             playerTwoHUD.GetComponent<Image>().color = new Color32(254, 255, 196, 255);
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
         if (playerTurn == 1)
         {
             // Enlarge Player 2 HUD and change its colour
-            playerTwoHUD.gameObject.transform.localScale = new Vector3(1.14f, 1.14f, 1.14f);
+            EnlargeHUDAnimation(playerTwoHUD.gameObject);
             playerTwoHUD.GetComponent<Image>().color = new Color32(253, 100, 100, 255);
             // Reduce Player 1 HUD
             playerOneHUD.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -76,6 +79,12 @@ public class GameManager : MonoBehaviour
         }
         else
             rollButton.SetActive(true);
+    }
+
+    private void EnlargeHUDAnimation(GameObject obj)
+    {
+            LeanTween.scale(obj, new Vector3(1.1f, 1.1f, 1.1f), 0.9f);
+            LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.9f);
     }
 
     // -- CO-ROUTINES --
