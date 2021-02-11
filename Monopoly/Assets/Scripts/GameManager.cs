@@ -125,10 +125,10 @@ public class GameManager : MonoBehaviour
         GameObject currentPlayer = GameObject.FindGameObjectWithTag(playerTurn.ToString());
         
 
-        fullText = currentPlayer.GetComponent<Player>().playerName + " has roled a " + diceNumber.ToString() + ".";
+        fullText = currentPlayer.GetComponent<Player>().playerName + " has rolled a " + diceNumber.ToString() + ".";
         StartCoroutine(TypeText());
         hasRolled = false;
-
+        NextTurn();
     }
 
     IEnumerator ProcessPlayerTwoRoll()
@@ -137,6 +137,7 @@ public class GameManager : MonoBehaviour
         fullText = playerTwo.playerName + " has roled a " + diceNumber.ToString() + ".";
         StartCoroutine(TypeText());
         hasRolled = false;
+        yield return new WaitForSeconds(1f);
         NextTurn();
     }
 
