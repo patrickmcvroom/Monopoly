@@ -191,12 +191,15 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(TypeText());
 
                 // Calculate game order
-                // StartCoroutine(CalculateGameOrder());
 
+                StartCoroutine(CalculateGameOrder());
+                yield return new WaitForSeconds(textWaitTime * 3);
+
+                state = GameState.ROLL;
                 hasRolled = false;
-                NextTurn();
             }
         }
+
         else // For every other player in beginning roll sequence...
         {
             // Get player name and state their roll result
@@ -240,13 +243,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator ProcessRoll()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
     IEnumerator CalculateGameOrder()
     {
-
         var highestRoll = 0;
         var currentHighestPlayer = 0;
 
-        for (int player = 0; player < totalPlayers; player++)
+        for(int player = 0; player < totalPlayers; player++)
         {
             if (firstRollResults[player] > highestRoll)
             {
@@ -255,10 +262,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
+        yield return new WaitForSeconds(textWaitTime);
+        fullText = GameObject.FindGameObjectWithTag(currentHighestPlayer.ToString()).GetComponent<Player>().playerName + " has rolled the highest!";
+        StartCoroutine(TypeText());
 
         yield return new WaitForSeconds(textWaitTime);
-        firstRollResults.Remove(currentHighestPlayer);
+        fullText = GameObject.FindGameObjectWithTag(currentHighestPlayer.ToString()).GetComponent<Player>().playerName + " will start the game.";
+        StartCoroutine(TypeText());
+
+        playerTurn = currentHighestPlayer;
     }
 
     public void NextTurn()
@@ -280,6 +292,7 @@ public class GameManager : MonoBehaviour
             else if (state == GameState.ROLL)
             {
                 GameObject.FindGameObjectWithTag(playerTurn.ToString());
+                StartCoroutine(ProcessRoll());
             }
         }
     }
