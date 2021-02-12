@@ -14,16 +14,9 @@ public class Cell : MonoBehaviour
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text tValue;
     [SerializeField] private int iValue;
-    
-
 
     public float CellWidth { get { return cellWidth; } }
     public float CellHeight { get { return cellHeight; } }
-
-    public void SetTexture(Texture texture)
-    {
-        _renderer.material.mainTexture = texture;
-    }
 
     public void SetConfiguration(TileConfiguration configuration)
     {

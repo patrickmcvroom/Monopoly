@@ -12,26 +12,16 @@ public class Player : MonoBehaviour
     public string playerName;
     public int cash;
     public int playerID;
+    public int boardSpaceIndex;
 
     public void Create(Vector3 position)
     {
         Instantiate(transform, position, Quaternion.identity);
     }
 
-    public void Move(int amount)
+    public void Move(GameObject boardSpace)
     {
-        cellPosition += amount;
-        cellPosition %= Board.CellCount;
-
-        var targetPosition = board.GetCellPosition(cellPosition);
-
-        // animate this
-        transform.position = targetPosition;
+        gameObject.transform.position = boardSpace.transform.position;
     }
-
-    //public int Roll(Dice dice)
-    //{
-    //    return dice.Roll();
-    //}
 
 }

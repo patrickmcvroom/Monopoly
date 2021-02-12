@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerOneCashText;
     public TextMeshProUGUI playerTwoNameText;
     public TextMeshProUGUI playerTwoCashText;
+    public bool hasRolled = true;
     public string fullText;
     public static int diceNumber;
     public Dictionary<int, int> firstRollResults = new Dictionary<int, int>();
     public Dictionary<int, int> duplDict = new Dictionary<int, int>();
-    public bool hasRolled = true;
+    public GameObject[] boardSpaces = new GameObject[38];
+    public int boardSpaceIndex = 0;
 
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private GameObject middleOfBoard;
@@ -209,10 +211,7 @@ public class GameManager : MonoBehaviour
             firstRollResults.Add(playerTurn, diceNumber);
             Debug.Log(firstRollResults[playerTurn]);
 
-            
-
             // Check for duplicates
-
             // IF DUPLICATES Player should roll again
             if(CheckForDuplicates())
             {
@@ -245,7 +244,34 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ProcessRoll()
     {
-        yield return new WaitForSeconds(2f);
+        // Wait for the dice to throw itself
+        yield return new WaitForSeconds(3f);
+
+        GameObject currentPlayer = GameObject.FindGameObjectWithTag(playerTurn.ToString());
+
+        fullText = currentPlayer.GetComponent<Player>().playerName + " has rolled a " + diceNumber.ToString() + ".";
+        StartCoroutine(TypeText());
+
+        // Move the player
+        StartCoroutine(MoveThePlayer());
+    }
+
+    IEnumerator MoveThePlayer()
+    {
+        yield return new WaitForSeconds(textWaitTime);
+        GameObject currentPlayer = GameObject.FindGameObjectWithTag(playerTurn.ToString());
+        currentPlayer.GetComponent<Player>().boardSpaceIndex += diceNumber;
+        currentPlayer.GetComponent<Player>().boardSpaceIndex %= 38;
+        currentPlayer.gameObject.GetComponent<Player>().Move(boardSpaces[currentPlayer.GetComponent<Player>().boardSpaceIndex]);
+        NextTurn();
+        yield return new WaitForSeconds(textWaitTime);
+
+        
+
+        fullText = "It is " + GameObject.FindGameObjectWithTag((playerTurn + 1).ToString()).GetComponent<Player>().playerName + "'s turn to roll...";
+        StartCoroutine(TypeText());
+        state = GameState.ROLL;
+        hasRolled = false;
     }
 
     IEnumerator CalculateGameOrder()
@@ -291,7 +317,6 @@ public class GameManager : MonoBehaviour
             }
             else if (state == GameState.ROLL)
             {
-                GameObject.FindGameObjectWithTag(playerTurn.ToString());
                 StartCoroutine(ProcessRoll());
             }
         }
@@ -317,7 +342,3 @@ public class GameManager : MonoBehaviour
         return false;
     }
 }
-
-// DICT  --- PLAYER ROLLS
-
-// D  HOW 
