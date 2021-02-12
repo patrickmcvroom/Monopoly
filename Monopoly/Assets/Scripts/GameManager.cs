@@ -266,8 +266,6 @@ public class GameManager : MonoBehaviour
         NextTurn();
         yield return new WaitForSeconds(textWaitTime);
 
-        
-
         fullText = "It is " + GameObject.FindGameObjectWithTag((playerTurn + 1).ToString()).GetComponent<Player>().playerName + "'s turn to roll...";
         StartCoroutine(TypeText());
         state = GameState.ROLL;
