@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(textWaitTime/2);
         GameObject currentPlayer = GameObject.FindGameObjectWithTag(playerTurn.ToString());
         currentPlayer.GetComponent<Player>().boardSpaceIndex += diceNumber;
-        currentPlayer.GetComponent<Player>().boardSpaceIndex %= 38;
+        currentPlayer.GetComponent<Player>().boardSpaceIndex %= 40;
         currentPlayer.gameObject.GetComponent<Player>().Move(boardSpaces[currentPlayer.GetComponent<Player>().boardSpaceIndex]);
         NextTurn();
         yield return new WaitForSeconds(textWaitTime);
