@@ -258,7 +258,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveThePlayer()
     {
-        yield return new WaitForSeconds(textWaitTime);
+        yield return new WaitForSeconds(textWaitTime/2);
         GameObject currentPlayer = GameObject.FindGameObjectWithTag(playerTurn.ToString());
         currentPlayer.GetComponent<Player>().boardSpaceIndex += diceNumber;
         currentPlayer.GetComponent<Player>().boardSpaceIndex %= 38;
@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
         NextTurn();
         yield return new WaitForSeconds(textWaitTime);
 
-        fullText = "It is " + GameObject.FindGameObjectWithTag((playerTurn + 1).ToString()).GetComponent<Player>().playerName + "'s turn to roll...";
+        fullText = "It is " + GameObject.FindGameObjectWithTag((playerTurn).ToString()).GetComponent<Player>().playerName + "'s turn to roll...";
         StartCoroutine(TypeText());
         state = GameState.ROLL;
         hasRolled = false;
