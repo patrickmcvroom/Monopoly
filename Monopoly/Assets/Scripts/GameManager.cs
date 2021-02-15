@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public static int diceNumber;
     public Dictionary<int, int> firstRollResults = new Dictionary<int, int>();
     public Dictionary<int, int> duplDict = new Dictionary<int, int>();
-    public GameObject[] boardSpaces = new GameObject[38];
+    public GameObject[] boardSpaces = new GameObject[40];
     public int boardSpaceIndex = 0;
 
     [SerializeField] private GameObject gameBoard;
