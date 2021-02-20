@@ -85,8 +85,8 @@ public class GameManager : MonoBehaviour
 
     private void EnlargeHUDAnimation(GameObject obj)
     {
-            LeanTween.scale(obj, new Vector3(1.1f, 1.1f, 1.1f), 0.9f);
-            LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.9f);
+        LeanTween.scale(obj, new Vector3(1.1f, 1.1f, 1.1f), 0.9f);
+        LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.9f);
     }
 
     // -- CO-ROUTINES --
