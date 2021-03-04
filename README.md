@@ -1,2 +1,2 @@
 # Monopoly
-My attempt at a monopoly game
+A monopoly game written in C# using Unity
